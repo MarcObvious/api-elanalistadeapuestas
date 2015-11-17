@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "000015*",
+    "database": "elAnalistaDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "marc",
+    "password": "000015*",
+    "database": "elAnalistaDB",
+    "host": "46.101.133.4",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "api_node",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
