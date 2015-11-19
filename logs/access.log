@@ -49080,3 +49080,12 @@
 [0mGET /api/classificacio [32m200 [0m4.325 ms - 99[0m
 [0mGET / [32m200 [0m212.491 ms - 3789[0m
 [0mGET /api/classificacio [32m200 [0m2.521 ms - 99[0m
+[0mGET /api/classificacio [32m200 [0m10.260 ms - 99[0m
+[0mGET /favicon.ico [32m200 [0m2.280 ms - 318[0m
+[0mGET /api/classificacio [32m200 [0m8.908 ms - 99[0m
+[0mGET /favicon.ico [32m200 [0m2.285 ms - 318[0m
+[0mGET /api/classificacio [32m200 [0m4.330 ms - 99[0m
+[0mGET /favicon.ico [32m200 [0m0.815 ms - 318[0m
+[0mGET /api [33m404 [0m1.056 ms - 16[0m
+[0mGET /api/ [33m404 [0m0.618 ms - 17[0m
+[0mGET / [32m200 [0m176.160 ms - 3789[0m
