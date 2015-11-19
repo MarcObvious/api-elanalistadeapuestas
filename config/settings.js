@@ -1,22 +1,11 @@
 var path       = require('path');
 
 var settings = {
+    appMode    : 'dev',
     path       : path.normalize(path.join(__dirname, '..')),
     port       : process.env.NODE_PORT || 3000,
-    database   : {
-        protocol : "mysql",
-        host     : "127.0.0.1",
-        database : "test_api",
-        user     : "root",
-        password : "localDB",
-        query    : {
-            pool : false, //CACHE querys
-            debug: true
-        }
-    },
     logsdir     : __dirname + '/../logs/access.log',
     secret_jwt  : "crypt_key123",
-
     //JSON web tokens permissions
     auth_perms  : {
         "users" : {

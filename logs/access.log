@@ -49069,3 +49069,14 @@
 [0mGET /api/ [33m404 [0m1.025 ms - 17[0m
 [0mGET /api/matches [33m404 [0m0.522 ms - 24[0m
 [0mGET /api/table [32m200 [0m353.764 ms - 2631409[0m
+[0mGET /api/table [32m200 [0m358.121 ms - 2631409[0m
+[0mGET /favicon.ico [32m200 [0m3.704 ms - 318[0m
+[0mGET /api/table [32m200 [0m387.875 ms - 2631409[0m
+[0mGET /favicon.ico [32m200 [0m8.051 ms - 318[0m
+[0mGET /api/teams [33m404 [0m1.402 ms - 22[0m
+[0mGET /api/team [33m404 [0m0.405 ms - 21[0m
+[0mGET /index [33m404 [0m0.270 ms - 18[0m
+[0mGET /api/index [33m404 [0m0.338 ms - 22[0m
+[0mGET /api/classificacio [32m200 [0m4.325 ms - 99[0m
+[0mGET / [32m200 [0m212.491 ms - 3789[0m
+[0mGET /api/classificacio [32m200 [0m2.521 ms - 99[0m
