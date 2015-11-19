@@ -1,0 +1,7 @@
+/node_modules/*
+.idea/*
+/config/settings.js
+/logs/access.log
+config/settings.js
+config/settingsBBDD.js
+app/config/*
