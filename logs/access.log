@@ -49089,3 +49089,6 @@
 [0mGET /api [33m404 [0m1.056 ms - 16[0m
 [0mGET /api/ [33m404 [0m0.618 ms - 17[0m
 [0mGET / [32m200 [0m176.160 ms - 3789[0m
+[0mGET /api/table [32m200 [0m396.195 ms - 2631409[0m
+[0mGET /api/classificacio [32m200 [0m4.324 ms - 99[0m
+[0mGET /api/classificacio [32m200 [0m2.367 ms - 99[0m
