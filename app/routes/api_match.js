@@ -9,8 +9,10 @@ jwtmiddleware(router);
 
 /* GET Newsletter Shops listing. */
 router.get('/',match_controller.list);
-router.get('/:id/:date',match_controller.get);
 router.get('/:id',match_controller.get);
+router.get('/:id/:year/:round/:competition',match_controller.get);
+router.get('/:id/:year/:round/:competition/:team',match_controller.get);
+
 //router.get('/:id/:searchname',match_controller.get);
 router.post('/',match_controller.create);
 router.put('/:id',match_controller.put);

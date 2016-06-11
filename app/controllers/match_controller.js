@@ -7,6 +7,7 @@ var models          = require('../models');
 var controller_name = 'match';
 
 var Match = models.Match;
+var Lineup = models.Lineup;
 var Team = models.Team;
 var MatchExtra = models.MatchExtra;
 
@@ -92,17 +93,55 @@ module.exports = {
     },
     get: function (req, res, next) {
 
-        var searchname = req.params.searchname ? req.params.searchname : null;
-        var getId = req.params.id ? req.params.id : null;
+        var id = req.params.id ? req.params.id : null;
+        var year = (req.params.year && req.params.year != 0) ? req.params.year : [2013,2014,2015];
+        var round = (req.params.round && req.params.round != 0) ? req.params.round : null;
+        var competition = (req.params.competition && req.params.competition != 0) ? req.params.competition : [1,8,10];
 
-        if(searchname){
-            Nshop.findOne({ where: {shop_name: searchname}}).then(function(shop) {
+        var team = req.params.team ? req.params.team : null;
+    /*    console.log(year);
+        console.log(round);
+        console.log(competition);
+        console.log(team);
+*/
+        if(year  && competition && round && team){
+            /*Match.findAll({
+                include: [{all: true}],
+                where: {
+                    temp: year,
+                    lliga: competition,
+                    round: round
+                }}).then(function(shop) {
+
+            });*/
+
+            return res.status(200).json(helpers.formatResponse(controller_name,req.method,'Nope, doesnt work'));
+        }
+
+        if(year  && competition && round){
+            Match.findAll({
+                include: [{all: true}],
+                where: {
+                    temp: year,
+                    lliga: competition,
+                    round: round
+        }}).then(function(shop) {
                 return res.status(200).json(helpers.formatResponse(controller_name,req.method,shop));
             });
         }
-        else if(getId){
-            Nshop.findOne({ where: {id: getId}}).then(function(shop) {
+        else if(year  && competition){
+            Match.findAll({
+                include: [{all: true}],
+                where: {
+                    temp: year,
+                    lliga: competition
+                }}).then(function(shop) {
                 return res.status(200).json(helpers.formatResponse(controller_name,req.method,shop));
+            });
+        }
+        else if(id){
+            Match.findOne({ where: {id: id}}).then(function(match) {
+                return res.status(200).json(helpers.formatResponse(controller_name,req.method,match));
             });
         }
         else{

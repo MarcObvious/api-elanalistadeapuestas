@@ -55,6 +55,10 @@ var settings = {
         "matchextra" : {
             disallow : [],
             allow    : ["post","get","put","options"]
+        },
+        "all" : {
+            disallow : [],
+            allow    : ["post","get","put","options"]
         }
     },
     api_prefix  : '/api',
