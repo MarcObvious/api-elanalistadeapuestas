@@ -28,4 +28,4 @@ module.exports = function (app) {
 
     //Web routes
     app.use('/',home_routes);
-}
+};
