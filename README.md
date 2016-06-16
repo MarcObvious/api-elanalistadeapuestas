@@ -1,5 +1,6 @@
 # Api-Analista
 Basic API - NodeJS (ORM sequelizer) that serves data stored in a SQL BBDD via sequelize
+for the final project 'Predicció i mostra de resultats futbolístics utilitzant algoritmes de Machine Learning'.
 
 ### Live example
 - `http://elanalistadeapuestas.com:3000/`
