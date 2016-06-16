@@ -113,27 +113,31 @@ module.exports = {
 
             return res.status(200).json(helpers.formatResponse(controller_name,req.method,'Nope, doesnt work'));
         }
+        if (competition == 0){
+            competition = [1,8,10];
+        }
+        if (year == 0) {
+            year = [2013,2014,2015]
+        }
 
         if(year && competition && round){
 
             Match.findAll({
-             //   include: [{all: true}],
                 where: {
-                    temp: year !== 0 ? year : [2013,2014,2015],
-                    lliga: competition !== 0 ? competition : [1,8,10],
+                    temp: year,
+                    lliga: competition,
                     round: round
-        }}).then(function(shop) {
-                return res.status(200).json(helpers.formatResponse(controller_name,req.method,shop));
+        }}).then(function(matchs) {
+                return res.status(200).json(helpers.formatResponse(controller_name,req.method,matchs));
             });
         }
-        else if(year  && competition){
+        else if(year && competition){
             Match.findAll({
-              //  include: [{model: 'matchLineup'}],
                 where: {
                     temp: year,
                     lliga: competition
-                }}).then(function(shop) {
-                return res.status(200).json(helpers.formatResponse(controller_name,req.method,shop));
+                }}).then(function(matchs) {
+                return res.status(200).json(helpers.formatResponse(controller_name,req.method,matchs));
             });
         }
         else if(id){
