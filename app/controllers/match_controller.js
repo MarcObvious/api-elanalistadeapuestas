@@ -94,9 +94,9 @@ module.exports = {
     get: function (req, res, next) {
 
         var id = req.params.id ? req.params.id : null;
-        var year = (req.params.year && req.params.year != 0) ? req.params.year : null;
+        var year = req.params.year ? req.params.year : null;
         var round = (req.params.round && req.params.round != 0) ? req.params.round : null;
-        var competition = (req.params.competition && req.params.competition != 0) ? req.params.competition : null;
+        var competition = req.params.competition  ? req.params.competition : null;
         var team = req.params.team ? req.params.team : null;
 
         //Doesn't work yet
@@ -115,11 +115,12 @@ module.exports = {
         }
 
         if(year && competition && round){
+
             Match.findAll({
              //   include: [{all: true}],
                 where: {
-                    temp: year,
-                    lliga: competition,
+                    temp: year != 0 ? year : [2013,2014,2015],
+                    lliga: competition != 0 ? competition : [1,8,10],
                     round: round
         }}).then(function(shop) {
                 return res.status(200).json(helpers.formatResponse(controller_name,req.method,shop));
