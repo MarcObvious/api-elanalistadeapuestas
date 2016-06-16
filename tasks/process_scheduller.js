@@ -1,6 +1,3 @@
-/**
- * Created by ramon on 22/09/15.
- */
 var models      = require('../app/models/');
 var async       = require('async');
 var colors      = require('colors');
@@ -8,8 +5,6 @@ var crypto      = require('crypto');
 var orm         = require('orm');
 
 models(function (err, db) {
-
-    var devicetokens_send=[];
 
     if (err) throw err;
 

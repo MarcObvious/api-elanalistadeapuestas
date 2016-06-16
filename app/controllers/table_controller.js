@@ -1,5 +1,5 @@
 var _               = require('lodash');
-var helpers         = require('./_helpers');
+var helpers         = require('./../helpers/responseHelper');
 var settings        = require('../../config/settings');
 var async           = require('async');
 var models          = require('../models');
@@ -14,7 +14,6 @@ module.exports = {
     list: function (req, res, next) {
         Table.findAll({
             include: [],
-            //attributes: ['shop_name', 'value']
         }).then(function(table) {
             return res.status(200).json(helpers.formatResponse(controller_name,req.method,table));
         });

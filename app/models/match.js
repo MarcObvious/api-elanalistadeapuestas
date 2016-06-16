@@ -48,9 +48,10 @@ module.exports = function(sequelize, DataTypes) {
     },{
         classMethods : {
             associate : function(models){
-                Match.hasOne(models.MatchExtra,{as: 'match_id'});
-                Match.hasMany(models.MatchStat,{as: 'match_id'});
-                Match.hasMany(models.Lineup,{as: 'match_id'});
+                Match.hasOne(models.MatchExtra,{as: 'matchExtra'});
+                Match.hasMany(models.Prediction,{as: 'matchPrediction'});
+                Match.hasMany(models.MatchStat,{as: 'matchStat'});
+                Match.hasMany(models.Lineup,{as: 'matchLineup'});
                 Match.belongsTo(models.Team, {as: 'local_'});
                 Match.belongsTo(models.Team, {as: 'visitor_'});
             }

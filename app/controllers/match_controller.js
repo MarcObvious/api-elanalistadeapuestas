@@ -1,5 +1,5 @@
 var _               = require('lodash');
-var helpers         = require('./_helpers');
+var helpers         = require('./../helpers/responseHelper');
 var settings        = require('../../config/settings');
 var async           = require('async');
 var models          = require('../models');
@@ -94,16 +94,12 @@ module.exports = {
     get: function (req, res, next) {
 
         var id = req.params.id ? req.params.id : null;
-        var year = (req.params.year && req.params.year != 0) ? req.params.year : [2013,2014,2015];
+        var year = (req.params.year && req.params.year != 0) ? req.params.year : null;
         var round = (req.params.round && req.params.round != 0) ? req.params.round : null;
-        var competition = (req.params.competition && req.params.competition != 0) ? req.params.competition : [1,8,10];
-
+        var competition = (req.params.competition && req.params.competition != 0) ? req.params.competition : null;
         var team = req.params.team ? req.params.team : null;
-    /*    console.log(year);
-        console.log(round);
-        console.log(competition);
-        console.log(team);
-*/
+
+        //Doesn't work yet
         if(year  && competition && round && team){
             /*Match.findAll({
                 include: [{all: true}],
@@ -118,9 +114,9 @@ module.exports = {
             return res.status(200).json(helpers.formatResponse(controller_name,req.method,'Nope, doesnt work'));
         }
 
-        if(year  && competition && round){
+        if(year && competition && round){
             Match.findAll({
-                include: [{all: true}],
+             //   include: [{all: true}],
                 where: {
                     temp: year,
                     lliga: competition,
@@ -131,7 +127,7 @@ module.exports = {
         }
         else if(year  && competition){
             Match.findAll({
-                include: [{all: true}],
+              //  include: [{model: 'matchLineup'}],
                 where: {
                     temp: year,
                     lliga: competition
@@ -140,7 +136,10 @@ module.exports = {
             });
         }
         else if(id){
-            Match.findOne({ where: {id: id}}).then(function(match) {
+            Match.findOne({
+                include: [{all: true}],
+                    where: {id: id}
+            }).then(function(match) {
                 return res.status(200).json(helpers.formatResponse(controller_name,req.method,match));
             });
         }
@@ -148,6 +147,7 @@ module.exports = {
             return res.status(200).json(helpers.formatResponse(controller_name,req.method,null,'Empty'));
         }
     },
+    //No puts, no deletes
     put: function(req,res,next) {
         /*  var params = _.pick(req.body, 'shop_name', 'value');
          return res.status(200).json(helpers.formatResponse(controller_name,req.method,null,'Empty'));*/

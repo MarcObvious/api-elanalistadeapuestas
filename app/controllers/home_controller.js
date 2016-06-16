@@ -1,7 +1,8 @@
 var settings = require('../../config/settings');
 
 var _       = require('lodash');
-var helpers = require('./_helpers');
+var helpers         = require('./../helpers/responseHelper');
+
 
 module.exports = {
     list: function (req, res, next) {
