@@ -119,8 +119,8 @@ module.exports = {
             Match.findAll({
              //   include: [{all: true}],
                 where: {
-                    temp: year != 0 ? year : [2013,2014,2015],
-                    lliga: competition != 0 ? competition : [1,8,10],
+                    temp: year !== 0 ? year : [2013,2014,2015],
+                    lliga: competition !== 0 ? competition : [1,8,10],
                     round: round
         }}).then(function(shop) {
                 return res.status(200).json(helpers.formatResponse(controller_name,req.method,shop));
