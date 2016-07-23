@@ -120,14 +120,32 @@ module.exports = {
             year = [2013,2014,2015]
         }
 
-        if(year && competition && round){
+        if(year && competition && round && team){
 
             Match.findAll({
                 where: {
-                    temp: year,
-                    lliga: competition,
-                    round: round
+                    $and: [
+                        {temp: year},
+                        {lliga: competition},
+                        {round: round},
+                        {$or: [{local: {$like: '%'+team+'%'}}, {visitor:{$like:'%'+team+'%'}}]}
+                    ]
+
         }}).then(function(matchs) {
+                return res.status(200).json(helpers.formatResponse(controller_name,req.method,matchs));
+            });
+        }
+        else if(year && competition && team){
+
+            Match.findAll({
+                where: {
+                    $and: [
+                        {temp: year},
+                        {lliga: competition},
+                        {$or: [{local: {$like: '%'+team+'%'}}, {visitor:{$like:'%'+team+'%'}}]}
+                    ]
+
+                }}).then(function(matchs) {
                 return res.status(200).json(helpers.formatResponse(controller_name,req.method,matchs));
             });
         }
